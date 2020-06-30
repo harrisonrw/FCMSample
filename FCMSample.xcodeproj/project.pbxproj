@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		E1111A7D24AB9BCC006B7AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1111A7C24AB9BCC006B7AAA /* Assets.xcassets */; };
 		E1111A8024AB9BCC006B7AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1111A7E24AB9BCC006B7AAA /* LaunchScreen.storyboard */; };
 		E14816BD24ABA00F00D3E3BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14816BC24ABA00F00D3E3BA /* GoogleService-Info.plist */; };
+		E14816BF24ABBC4B00D3E3BA /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14816BE24ABBC4B00D3E3BA /* MessageViewController.swift */; };
+		E14816C124ABD00600D3E3BA /* FCMPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14816C024ABD00600D3E3BA /* FCMPayload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		E1111A8124AB9BCC006B7AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14816BB24AB9D2B00D3E3BA /* FCMSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FCMSample.entitlements; sourceTree = "<group>"; };
 		E14816BC24ABA00F00D3E3BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E14816BE24ABBC4B00D3E3BA /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		E14816C024ABD00600D3E3BA /* FCMPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMPayload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +55,6 @@
 				5BDDEEF17A567980C77B1251 /* Pods-FCMSample.debug.xcconfig */,
 				2660BF6EF84B5216FE4D5958 /* Pods-FCMSample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -89,6 +92,8 @@
 				E1111A7324AB9BCA006B7AAA /* AppDelegate.swift */,
 				E1111A7524AB9BCA006B7AAA /* SceneDelegate.swift */,
 				E1111A7724AB9BCA006B7AAA /* ViewController.swift */,
+				E14816BE24ABBC4B00D3E3BA /* MessageViewController.swift */,
+				E14816C024ABD00600D3E3BA /* FCMPayload.swift */,
 				E1111A7924AB9BCA006B7AAA /* Main.storyboard */,
 				E1111A7C24AB9BCC006B7AAA /* Assets.xcassets */,
 				E1111A7E24AB9BCC006B7AAA /* LaunchScreen.storyboard */,
@@ -215,6 +220,8 @@
 			files = (
 				E1111A7824AB9BCA006B7AAA /* ViewController.swift in Sources */,
 				E1111A7424AB9BCA006B7AAA /* AppDelegate.swift in Sources */,
+				E14816C124ABD00600D3E3BA /* FCMPayload.swift in Sources */,
+				E14816BF24ABBC4B00D3E3BA /* MessageViewController.swift in Sources */,
 				E1111A7624AB9BCA006B7AAA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

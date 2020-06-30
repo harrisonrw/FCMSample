@@ -78,8 +78,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         
         let userInfo = response.notification.request.content.userInfo
-        
         print(userInfo)
+        
+        // Convert userInfo to data, so we can use the JSONDecoder on it.
+        guard let data = try? JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted) else {
+            completionHandler()
+            return
+        }
+        
+        // Get the payload from the data.
+        guard let payload = try? JSONDecoder().decode(FCMPayload.self, from: data) else {
+            completionHandler()
+            return
+        }
+        
+        guard let viewController = UIApplication.shared.windows.first?.rootViewController as? ViewController else {
+            completionHandler()
+            return
+        }
+        
+        // Present the message.
+        let messageViewController = MessageViewController.configured(message: payload.aps.message)
+        viewController.present(messageViewController, animated: true, completion: nil)
         
         completionHandler()
     }
