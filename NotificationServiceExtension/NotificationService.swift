@@ -13,17 +13,29 @@ class NotificationService: UNNotificationServiceExtension {
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
 
-    override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+    override func didReceive(_ request: UNNotificationRequest,
+                             withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
+        
         self.contentHandler = contentHandler
         guard let bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
             return
         }
         
-           
-        if let attachmentURLString = bestAttemptContent.userInfo["url"] as? String,
-            let attachmentURL = URL(string: attachmentURLString) {
+        // Convert userInfo to data, so we can use the JSONDecoder on it.
+        guard let data = try? JSONSerialization.data(withJSONObject: bestAttemptContent.userInfo, options: .prettyPrinted) else {
+            return
+        }
+        
+        // Get the payload from the data.
+        guard let payload = try? JSONDecoder().decode(FCMPayload.self, from: data) else {
+            return
+        }
+        
+        if let imageURLString = payload.options?.image, let imageURL = URL(string: imageURLString) {
             
-            downloadImage(from: attachmentURL) { (attachment) in
+            // Download the image and add it to the notification's attachments.
+            // This is required to get the image to appear in the notification.
+            downloadImage(from: imageURL) { (attachment) in
                 
                 guard let attachment = attachment else {
                     contentHandler(bestAttemptContent)
@@ -38,7 +50,6 @@ class NotificationService: UNNotificationServiceExtension {
         } else {
             contentHandler(bestAttemptContent)
         }
-            
         
     }
     
@@ -59,7 +70,7 @@ class NotificationService: UNNotificationServiceExtension {
             }
             
             var urlPath = URL(fileURLWithPath: NSTemporaryDirectory())
-            let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + ".png"
+            let uniqueURLEnding = ProcessInfo.processInfo.globallyUniqueString + ".jpg"
             urlPath = urlPath.appendingPathComponent(uniqueURLEnding)
             
             try? FileManager.default.moveItem(at: downloadURL, to: urlPath)

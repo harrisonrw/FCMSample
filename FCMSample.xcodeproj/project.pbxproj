@@ -19,6 +19,8 @@
 		E14816C124ABD00600D3E3BA /* FCMPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14816C024ABD00600D3E3BA /* FCMPayload.swift */; };
 		E14816E024AC03D400D3E3BA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14816DF24AC03D400D3E3BA /* NotificationService.swift */; };
 		E14816E424AC03D400D3E3BA /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E14816DD24AC03D400D3E3BA /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E17EED4624AE615F001E120D /* UIImageView+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17EED4524AE615F001E120D /* UIImageView+Remote.swift */; };
+		E17EED4A24AE6EED001E120D /* FCMPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14816C024ABD00600D3E3BA /* FCMPayload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,9 @@
 		E14816DD24AC03D400D3E3BA /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14816DF24AC03D400D3E3BA /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E14816E124AC03D400D3E3BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E14816EE24AC07FC00D3E3BA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		E14816F024AC07FC00D3E3BA /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		E17EED4524AE615F001E120D /* UIImageView+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Remote.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				9C97E7E4F24E02403115CA28 /* Pods_FCMSample.framework */,
+				E14816EE24AC07FC00D3E3BA /* UserNotifications.framework */,
+				E14816F024AC07FC00D3E3BA /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 				E1111A7724AB9BCA006B7AAA /* ViewController.swift */,
 				E14816BE24ABBC4B00D3E3BA /* MessageViewController.swift */,
 				E14816C024ABD00600D3E3BA /* FCMPayload.swift */,
+				E17EED4524AE615F001E120D /* UIImageView+Remote.swift */,
 				E1111A7924AB9BCA006B7AAA /* Main.storyboard */,
 				E1111A7C24AB9BCC006B7AAA /* Assets.xcassets */,
 				E1111A7E24AB9BCC006B7AAA /* LaunchScreen.storyboard */,
@@ -295,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17EED4624AE615F001E120D /* UIImageView+Remote.swift in Sources */,
 				E1111A7824AB9BCA006B7AAA /* ViewController.swift in Sources */,
 				E1111A7424AB9BCA006B7AAA /* AppDelegate.swift in Sources */,
 				E14816C124ABD00600D3E3BA /* FCMPayload.swift in Sources */,
@@ -308,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E14816E024AC03D400D3E3BA /* NotificationService.swift in Sources */,
+				E17EED4A24AE6EED001E120D /* FCMPayload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

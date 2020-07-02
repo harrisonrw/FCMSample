@@ -10,12 +10,18 @@ import Foundation
 
 struct FCMPayload: Codable {
     var messageId: String
+    var options: FCMOptions?
     var aps: FCMAPS
     
     private enum CodingKeys: String, CodingKey {
         case messageId = "gcm.message_id"
+        case options = "fcm_options"
         case aps
     }
+}
+
+struct FCMOptions: Codable {
+    var image: String
 }
 
 struct FCMAPS: Codable {

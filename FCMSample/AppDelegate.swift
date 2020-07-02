@@ -98,7 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         // Present the message.
-        let messageViewController = MessageViewController.configured(message: payload.aps.message)
+        let messageViewController = MessageViewController.configured(
+            message: payload.aps.message,
+            imageURL: payload.options?.image
+        )
         viewController.present(messageViewController, animated: true, completion: nil)
         
         completionHandler()
